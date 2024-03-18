@@ -1,8 +1,10 @@
-# POCO: Pose and Shape Estimation with Confidence
+# POCO: Pose and Shape Estimation with Confidence [3DV 2024]
 
 [Sai Kumar Dwivedi](https://ps.is.mpg.de/person/sdwivedi), [Cordelia Schmid](https://thoth.inrialpes.fr/~schmid/), [Hongwei Yi](https://ps.is.mpg.de/person/hyi), [Michael J. Black](https://ps.is.mpg.de/person/black), [Dimitrios Tzionas](https://dtzionas.com)
 
-[![YouTube Badge](https://img.shields.io/badge/YouTube-Watch-red?style=flat-square&logo=youtube)](https://www.youtube.com/watch?v=rrAl90dYvZE)  [![arXiv](https://img.shields.io/badge/arXiv-2308.12965-00ff00.svg)](https://arxiv.org/abs/2308.12965)  [![Website shields.io](https://img.shields.io/website?url=http%3A//poco.is.tue.mpg.de)](https://poco.is.tue.mpg.de)
+**International Conference on 3D Vision (3DV 2024)**
+
+[![Website shields.io](https://img.shields.io/website?url=http%3A//poco.is.tue.mpg.de)](https://poco.is.tue.mpg.de) [![YouTube Badge](https://img.shields.io/badge/YouTube-Watch-red?style=flat-square&logo=youtube)](https://www.youtube.com/watch?v=rrAl90dYvZE)  [![arXiv](https://img.shields.io/badge/arXiv-2308.12965-00ff00.svg)](https://arxiv.org/abs/2308.12965)  
 
 
 <div style="display:flex;">
@@ -27,7 +29,9 @@ pip install -r requirements.txt
 
 ## Pretrained Models
 
-To run the demo, please download the pretrained models and necessary files from [here](https://keeper.mpdl.mpg.de/f/2a5c9137cb024abc9fd2/?dl=1). After downloading, unzip the file and ensure that the contents are placed in a folder named `./data`.
+To run the demo, please download the pretrained models and necessary files from [here](https://poco.is.tue.mpg.de/download.php). Note that the Downloads url works only after sign in -- you need to register first and agree with our license.
+
+After downloading, unzip the file and ensure that the contents are placed in a folder named `./data`.
 
 ## Demo
 
