@@ -35,7 +35,7 @@ After downloading, unzip the file and ensure that the contents are placed in a f
 
 ## Demo
 
-We provide two versions of POCO: POCO-PARE and POCO-CLIFF. Note that POCO-CLIFF is more suitable for in-the-wild scenarios. To run a specific model, make sure to change the `--cfg` and `--ckpt` parameters accordingly i.e `pare` for POCO-CLIFF and `cliff` for POCO-CLIFF.
+We provide two versions of POCO: POCO-PARE and POCO-CLIFF. Note that POCO-CLIFF is more suitable for in-the-wild scenarios. To run a specific model, make sure to change the `--cfg` and `--ckpt` parameters accordingly i.e `pare` for POCO-PARE and `cliff` for POCO-CLIFF.
 
 ### Run the demo on a video
 
@@ -46,7 +46,7 @@ python demo.py --mode video --vid_file demo_data/friends.mp4 --cfg configs/demo_
 ### Run the demo on image folder
 
 ```
-python demo.py --mode folder --vid_file demo_data/images --cfg configs/demo_poco_cliff.yaml --ckpt data/poco_cliff.pt --output_folder out
+python demo.py --mode folder --image_folder demo_data/images --cfg configs/demo_poco_cliff.yaml --ckpt data/poco_cliff.pt --output_folder out
 ```
 
 ## Acknowledgements
