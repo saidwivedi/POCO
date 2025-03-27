@@ -101,8 +101,21 @@ def main(args):
         output_path = args.output_folder
 
     elif demo_mode == 'webcam':
-        logger.error('Webcam demo is not implemented!..')
-        raise NotImplementedError
+        logger.error('Webcam demo is in progress!..')
+        temp_cap = cv2.VideoCapture(0)
+        if not temp_cap.isOpened():
+            logger.error('Webcam not available!')
+            exit(1)
+        ret, frame = temp_cap.read()
+        if not ret:
+            logger.error('Failed to capture frame for initialization')
+            exit(1)
+        height, width = frame.shape[:2]
+        logger.info(f'Initial webcam frame size: {width}x{height}')
+        # For webcam mode, we use output_folder as the output path.
+        output_path = args.output_folder
+        os.makedirs(output_path, exist_ok=True)
+        temp_cap.release()
     else:
         raise ValueError(f'{demo_mode} is not a valid demo mode.')
 
@@ -209,7 +222,31 @@ def main(args):
                     joblib.dump(detections, join(output_path, f_img_dir + '_detection_results.pkl'))
 
                 tester.run_on_image_folder(input_image_folder, detections, output_path, output_img_folder)
+    
+    elif args.mode == 'webcam':
+        cap = cv2.VideoCapture(0)
+        if not cap.isOpened():
+            logger.error('Webcam not available!')
+            exit(1)
+        logger.info("Starting webcam demo...")
+        while True:
+            ret, frame = cap.read()
+            if not ret:
+                logger.error('Failed to capture frame from webcam')
+                break
 
+            start_time = time.time()
+            rendered_frame = tester.run_on_webcam_frame(frame)
+            fps = 1.0 / (time.time() - start_time)
+            cv2.putText(rendered_frame, f'FPS: {fps:.2f}', (10, 30),
+                        cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2)
+            cv2.imshow('Webcam Demo', rendered_frame)
+            if cv2.waitKey(1) & 0xFF == ord('q'):
+                break
+        cap.release()
+        cv2.destroyAllWindows()
+        logger.info("Webcam demo ended.")
+        return
 
 
 
